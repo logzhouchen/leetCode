@@ -9,17 +9,17 @@ public class BstTree {
     /**
      * 在二叉搜索树中删除目标节点
      */
-    public TreeNode deletetargetNode(TreeNode head, int target) {
+    public TreeNode deleteTargetNode(TreeNode head, int target) {
         if (head == null) {
             return null;
         }
 
         if (head.getValue() > target) {
-            head.setLeft(deletetargetNode(head.getLeft(), target));
+            head.setLeft(deleteTargetNode(head.getLeft(), target));
             return head;
 
         } else if (head.getValue() < target) {
-            head.setRight(deletetargetNode(head.getRight(), target));
+            head.setRight(deleteTargetNode(head.getRight(), target));
             return head;
 
         } else {
@@ -58,7 +58,7 @@ public class BstTree {
 //        solution.printTreeInLoop(root);
 
         BstTree bstTree = new BstTree();
-        root = bstTree.deletetargetNode(root, 6);
+        root = bstTree.deleteTargetNode(root, 6);
         solution.printTreeInLoop(root);
     }
 }
