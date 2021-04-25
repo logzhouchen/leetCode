@@ -55,7 +55,6 @@ public class BstTree {
         TreeNode root = new TreeNode(6, left1, right1);
 
         InOrder solution = new InOrder();
-//        solution.printTreeInLoop(root);
 
         BstTree bstTree = new BstTree();
         root = bstTree.deleteTargetNode(root, 6);

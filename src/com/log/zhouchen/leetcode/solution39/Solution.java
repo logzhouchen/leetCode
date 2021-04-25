@@ -30,9 +30,6 @@ public class Solution {
             result.add(thisone);
             return;
         }
-        if (target < candidates[0]) {
-            return;
-        }
 
         for (int i = start; i < candidates.length && candidates[i] <= target; i++) {
             thisone.add(candidates[i]);
