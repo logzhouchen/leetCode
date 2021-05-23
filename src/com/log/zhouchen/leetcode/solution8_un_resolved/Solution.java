@@ -1,4 +1,4 @@
-package com.log.zhouchen.leetcode.un_resolved_solution8;
+package com.log.zhouchen.leetcode.solution8_un_resolved;
 
 /**
  * @author: shenzhouchen

@@ -14,7 +14,7 @@ public class Solution {
             return 0;
         }
 
-        // sort in DESC order
+        // basic in DESC order
         Arrays.sort(citations);
         int[] array = reverse(citations);
 

@@ -1,4 +1,4 @@
-package com.log.zhouchen.leetcode.sort;
+package com.log.zhouchen.leetcode.basic;
 
 /**
  * @author: shenzhouchen

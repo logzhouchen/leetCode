@@ -12,7 +12,7 @@ public class Solution {
             return 0;
         }
 
-        // sort in DESC order
+        // basic in DESC order
         int[] array = reverse(citations);
 
         // find the largest h

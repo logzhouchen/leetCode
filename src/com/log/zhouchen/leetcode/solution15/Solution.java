@@ -7,6 +7,8 @@ import java.util.List;
 /**
  * @author: shenzhouchen
  * @date: 2021/3/30 11:50 PM
+ *
+ * 3数之和为0的所有组合
  **/
 public class Solution {
 
@@ -29,17 +31,22 @@ public class Solution {
             int left = 0 - nums[i];
             int j = i + 1, k = nums.length - 1;
             while (j < k) {
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    j++;
+                    continue;
+                }
+                if (k < nums.length - 1 && nums[k] == nums[k + 1]) {
+                    k--;
+                    continue;
+                }
+
                 int sum = nums[j] + nums[k];
                 if (sum == left) {
                     List<Integer> temp = new ArrayList<>();
                     temp.add(nums[i]);
                     temp.add(nums[j]);
                     temp.add(nums[k]);
-
-                    List<Integer> last = result.size() > 0 ? result.get(result.size() - 1) : null;
-                    if (!equals(last, temp)) {
-                        result.add(temp);
-                    }
+                    result.add(temp);
 
                     j++;
                     k--;
@@ -54,22 +61,8 @@ public class Solution {
         return result;
     }
 
-    private boolean equals(List<Integer> formor, List<Integer> now) {
-        if (formor== null || formor.size() != now.size()) {
-            return false;
-        }
-
-        for (int i = 0; i < formor.size(); i++) {
-            if (!formor.get(i).equals(now.get(i))) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static void main(String[] args) {
-        int[] nums = new int[]{0};
+        int[] nums = new int[]{-1,0,1,2,-1,-4};
 
         Solution solution = new Solution();
         System.out.println(solution.threeSum(nums));

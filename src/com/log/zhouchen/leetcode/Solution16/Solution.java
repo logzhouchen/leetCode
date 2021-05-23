@@ -14,7 +14,7 @@ public class Solution {
         int result = nums[0] + nums[1] + nums[2];
         for (int i = 0; i < nums.length - 2; i++) {
             int s = i + 1, e = nums.length - 1;
-            while (s < e && e < nums.length) {
+            while (s < e) {
                 int sum = nums[i] + nums[s] + nums[e];
                 if (Math.abs(sum - target) < Math.abs(result - target)) {
                     result = sum;
