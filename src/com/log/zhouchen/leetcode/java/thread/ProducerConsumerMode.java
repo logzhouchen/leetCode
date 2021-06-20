@@ -9,12 +9,11 @@ import java.util.Queue;
  **/
 public class ProducerConsumerMode {
 
-
     public static class Producer extends Thread {
         @Override
         public void run() {
-            while (true) {
-                synchronized (queue) {
+            synchronized (queue) {
+                while (true) {
                     while (queue.size() == MAX_SIZE) {
                         try {
                             queue.wait();
@@ -23,11 +22,10 @@ public class ProducerConsumerMode {
                     }
 
                     queue.offer(new Object());
-                    System.out.println("produce");
+                    System.out.println("Producer obj");
 
                     queue.notifyAll();
                 }
-
             }
         }
     }
@@ -35,8 +33,8 @@ public class ProducerConsumerMode {
     public static class Consumer extends Thread {
         @Override
         public void run() {
-            while (true) {
-                synchronized (queue) {
+            synchronized (queue) {
+                while (true) {
                     while (queue.isEmpty()) {
                         try {
                             queue.wait();
@@ -44,14 +42,16 @@ public class ProducerConsumerMode {
                         }
                     }
 
-                    queue.poll();
-                    System.out.println("consume");
+                    Object obj = queue.poll();
+                    System.out.println("Consumer obj");
 
                     queue.notifyAll();
                 }
             }
         }
     }
+
+
 
     private static Queue<Object> queue = new LinkedList<>();
     private static final int MAX_SIZE = 2;
